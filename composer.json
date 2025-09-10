@@ -1,0 +1,30 @@
+{
+    "name": "juanrube/laravel-toast-magic-8",
+    "type": "library",
+    "description": "Laravel Toaster Magic is a lightweight, flexible toast library for Laravel projects, with no jQuery, Bootstrap, or Tailwind dependency.",
+    "keywords": ["laravel", "toaster", "magic", "notifications", "toastr", "flash-notifications", "dynamic-notifications", "laravel-toastr", "php", "livewire", "livewire-toaster"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Juan Rube",
+            "email": "juanrube@gmail.com",
+            "role": "Software Developer"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "JuanRube\\ToastMagic\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel" :{
+            "providers" : [
+                "JuanRube\\ToastMagic\\ToastMagicServiceProvider"
+            ],
+            "aliases": {
+                "ToastMagic": "JuanRube\\ToastMagic\\Facades\\ToastMagic"
+            }
+        }
+    },
+    "require": {}
+}
