@@ -35,9 +35,9 @@ class AssetsServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function boot(): void
+    public function boot()
     {
-        $this->handleVersionedPublishing(name: 'juanrube/laravel-toast-magic-8');
+        $this->handleVersionedPublishing('juanrube/laravel-toast-magic-8');
     }
 
     /**
@@ -51,7 +51,7 @@ class AssetsServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function register(): void
+    public function register()
     {
         //
     }
@@ -66,7 +66,7 @@ class AssetsServiceProvider extends ServiceProvider
      *
      * @return string|null Version string of the installed package, e.g. "1.0.1" or null if unavailable.
      */
-    private function getCurrentVersion($name): ?string
+    private function getCurrentVersion($name)
     {
         $lockFile = base_path('composer.lock');
         if (!file_exists($lockFile)) {
@@ -95,7 +95,7 @@ class AssetsServiceProvider extends ServiceProvider
      *
      * @return string|null Previously published version string or null if none found.
      */
-    private function getPublishedVersion($name): ?string
+    private function getPublishedVersion($name)
     {
         $versionFile = public_path('packages/'.$name.'/version.php');
         if (!File::exists($versionFile)) {
@@ -120,10 +120,10 @@ class AssetsServiceProvider extends ServiceProvider
      * @param string|null $name
      * @return void
      */
-    private function handleVersionedPublishing(?string $name): void
+    private function handleVersionedPublishing($name)
     {
-        $currentVersionRaw = $this->getCurrentVersion(name: $name);
-        $publishedVersionRaw = $this->getPublishedVersion(name: $name);
+        $currentVersionRaw = $this->getCurrentVersion($name);
+        $publishedVersionRaw = $this->getPublishedVersion($name);
 
         $currentVersion = $this->normalizeVersion($currentVersionRaw);
         $publishedVersion = $this->normalizeVersion($publishedVersionRaw);
@@ -157,7 +157,7 @@ class AssetsServiceProvider extends ServiceProvider
      * @param string|null $version
      * @return string|null
      */
-    private function normalizeVersion(?string $version): ?string
+    private function normalizeVersion($version)
     {
         if (!$version) {
             return null;

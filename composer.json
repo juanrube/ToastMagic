@@ -7,7 +7,7 @@
     "authors": [
         {
             "name": "Juan Rube",
-            "email": "juanrube@gmail.com",
+            "email": "jrube@icloudcompliance.com",
             "role": "Software Developer"
         }
     ],
@@ -26,5 +26,9 @@
             }
         }
     },
-    "require": {}
+    "require": {
+        "php": "^7.3|^8.0",
+        "illuminate/support": "^8.0",
+        "illuminate/filesystem": "^8.0"
+    }
 }
