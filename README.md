@@ -1,5 +1,5 @@
 # 🍞 ToastMagic - Laravel Toaster (With Livewire v3 Support)
-
+## this is a fork adapted to Laravel8 and PHP < 8
 Laravel Toaster Magic is a lightweight and flexible toast notification package for Laravel applications — built with zero dependencies on jQuery, Bootstrap, or Tailwind.
 It’s fully compatible with Livewire, supports custom events, and now features a Material-inspired design for a modern UX out of the box.
 
@@ -14,20 +14,30 @@ It’s fully compatible with Livewire, supports custom events, and now features 
 
 ## 📚 Table of Contents
 
-- [Live Demo](#live-demo)
-- [Features](#features)
-- [Installation](#installation)
-- [Usage](#usage)
-  - [1. Basic Setup](#1-basic-setup)
-  - [2. Usage in Controller](#2-usage-in-controller)
-  - [3. Usage in JavaScript (Optional)](#3-usage-in-javascript-optional)
-  - [4. Livewire v3 Support](#4-livewire-v3-support)
-- [Alternative Syntax & Fluent API](#alternative-syntax--fluent-api)
-- [Toast Position Options](#toast-position-options)
-- [Get Started Today](#-get-started-today)
-- [Contributing](#contributing)
-- [License](#license)
-- [Contact](#contact)
+- [🍞 ToastMagic - Laravel Toaster (With Livewire v3 Support)](#-toastmagic---laravel-toaster-with-livewire-v3-support)
+  - [this is a fork adapted to Laravel8 and PHP \< 8](#this-is-a-fork-adapted-to-laravel8-and-php--8)
+  - [📚 Table of Contents](#-table-of-contents)
+  - [🚀 Live Demo](#-live-demo)
+  - [✨ Features](#-features)
+  - [📦 Installation](#-installation)
+  - [⚙️ Usage](#️-usage)
+    - [1. Basic Setup](#1-basic-setup)
+    - [2. Usage in Controller](#2-usage-in-controller)
+    - [3. Usage in JavaScript (Optional)](#3-usage-in-javascript-optional)
+    - [4. ✅ Livewire v3 Support](#4--livewire-v3-support)
+    - [5. ✅ Themes](#5--themes)
+    - [6. 🎨 Enabling Color Mode](#6--enabling-color-mode)
+    - [7. 🎨 Enabling Gradient Mode](#7--enabling-gradient-mode)
+  - [🧩 Alternative Syntax \& Fluent API](#-alternative-syntax--fluent-api)
+    - [🔹 Static Method (Quick)](#-static-method-quick)
+    - [🔹 Fluent Syntax (Advanced)](#-fluent-syntax-advanced)
+  - [📍 Toast Position Options](#-toast-position-options)
+  - [🌙 Enable Dark Mode](#-enable-dark-mode)
+  - [🎯 Get Started Today!](#-get-started-today)
+  - [🤝 Contributing](#-contributing)
+  - [📄 License](#-license)
+  - [🌱 Treeware](#-treeware)
+  - [📬 Contact](#-contact)
 
 ---
 
