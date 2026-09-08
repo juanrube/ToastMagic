@@ -33,11 +33,19 @@ class AssetsServiceProvider extends ServiceProvider
      * - Handles version-based asset publishing, replacing assets if a package version changed.
      * - Registers publishable resources when running in console.
      *
+     * Asset publishing only runs when the app boots in console (artisan/composer),
+     * never on a web request: writing/deleting files from an HTTP-served process
+     * (e.g. a webserver running under a different or elevated OS user, as with
+     * Laravel Herd on Windows) can leave the published files with permissions the
+     * developer's own shell can't touch or delete afterwards.
+     *
      * @return void
      */
     public function boot()
     {
-        $this->handleVersionedPublishing('juanrube/laravel-toast-magic-8');
+        if ($this->app->runningInConsole()) {
+            $this->handleVersionedPublishing('juanrube/laravel-toast-magic-8');
+        }
     }
 
     /**
@@ -111,11 +119,15 @@ class AssetsServiceProvider extends ServiceProvider
      * This method performs the following steps:
      * - Retrieves the current installed package version.
      * - Retrieves the previously published version from the public directory.
-     * - If versions differ (or no published version exists), deletes the existing asset folder.
-     * - Copies the new assets from the package's `assets` directory to the public packages folder.
+     * - If versions differ (or no published version exists), copies the assets
+     *   from the package's `assets` directory over the public packages folder.
      * - Writes/updates the version.php file in the public folder with the current version.
      *
      * This ensures the public assets are always in sync with the installed package version.
+     *
+     * copyDirectory() overwrites existing files in place instead of wiping the
+     * folder first: no window where the assets are missing, and no delete call
+     * that can fail/partially fail on a locked or permission-restricted file.
      *
      * @param string|null $name
      * @return void
@@ -135,11 +147,6 @@ class AssetsServiceProvider extends ServiceProvider
             // Ensure source assets exist before proceeding
             if (!File::exists($sourceAssets)) {
                 return;
-            }
-
-            // Delete and re-create the target directory
-            if (File::exists($assetsPath)) {
-                File::deleteDirectory($assetsPath);
             }
 
             File::ensureDirectoryExists($assetsPath);
